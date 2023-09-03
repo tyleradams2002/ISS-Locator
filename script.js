@@ -1,4 +1,4 @@
-const locationContainer = document.getElementById("containerLocation");
+const locationContainer = document.getElementById("totalContainer");
 const locationTitleAndTime = document.getElementById("locationTitle");
 const locationLongitude = document.getElementById("locationLongitude");
 const locationLatitude = document.getElementById("locationLatitude");
@@ -30,9 +30,9 @@ function completedLoadingAnimation() {
 }
 // ISS API Location Function
 async function fetchAPIData() {
+    loadingAnimation();
     const response = await fetch(locationAPI);
     issDataArray = await response.json();
-    console.log(issDataArray)
     issDataLongitude = issDataArray.iss_position.longitude;
     issDataLatitude = issDataArray.iss_position.latitude;
     issDataUnix = issDataArray.timestamp
@@ -107,7 +107,7 @@ async function gainData() {
     await unixConverter();
 }
 // Updates the information on the site
-async function FrontSideInformation() {
+async function frontSideInformationAsync() {
     await gainData();
     await siteUpdates();
     function siteUpdates() {
@@ -116,5 +116,18 @@ async function FrontSideInformation() {
         locationLatitude.textContent = `The Latitude is at ${issDataLatitude}`;
     }
 }
+
+function FrontSideInformation() {
+    frontSideInformationAsync();
+    completedLoadingAnimation();
+}
 // Run on Site Launch
 FrontSideInformation();
+
+/*
+```
+loading animation
+Google Maps to show location
+conversion for your time zone
+```
+ */
