@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEMPLATE FILE</title>
+    <title>ISS Locator</title>
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
@@ -15,6 +15,21 @@
 </head>
 <body>
     <!-- Script -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
+    <!-- Site -->
+    <header>
+        <h1 class="title" id="title">
+            <i class="fa-solid fa-rocket"></i>
+            International Space Station Locator
+            <i class="fa-solid fa-satellite"></i>
+        </h1>
+    </header>
+    <section class="totalContainer" id="totalContainer">
+        <div class="containerLocation" id="containerLocation">
+            <h2 class="locationTitle" id="locationTitle"></h2>
+            <p class="locationLongitude" id="locationLongitude"></p>
+            <p class="locationLatitude" id="locationLatitude"></p>
+        </div>
+    </section>
 </body>
 </html>
